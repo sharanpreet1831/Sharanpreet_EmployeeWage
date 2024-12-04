@@ -29,17 +29,21 @@ function CalculateWages() {
                     console.log("no work today ")
                     Totalwages = 0 ;
                     console.log(Totalwages);
+                    console.log(`No hours `)
+
                     break ;
             
                 case 1 :
                     Totalwages = partTime_work * WagesPerHour;
                     console.log(`Total wages ${Totalwages} `)
+                    console.log(`Part time work ${partTime_work}`)
                   
                     break ;
                     
                 case 2 :
-                    Totalwages = partTime_work * WagesPerHour;
+                    Totalwages = FullTime_work * WagesPerHour;
                     console.log(`Total wages ${Totalwages} `)
+                    console.log(`Fully time work ${FullTime_work}`)
                     break ;
             }
             
