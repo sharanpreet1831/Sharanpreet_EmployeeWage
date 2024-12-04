@@ -34,6 +34,7 @@ function CalculateWages() {
                 case 1 :
                     Totalwages = partTime_work * WagesPerHour;
                     console.log(`Total wages ${Totalwages} `)
+                  
                     break ;
                     
                 case 2 :
