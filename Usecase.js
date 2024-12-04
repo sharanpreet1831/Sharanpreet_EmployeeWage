@@ -14,11 +14,20 @@ function aborpre() {
     }
 }
 
+const partTime_work  = 4 
+const FullTime_work  = 8 
+let totalworkinghours = 0;
+
+
+function tottalhours(){
+    
+    console.log(`total working hours ${totalworkinghours}`);
+}
+
 
 function CalculateWages() {
     let worktype = Math.floor(Math.random()*3);
-    const partTime_work  = 4 
-    const FullTime_work  = 8 
+   
     const WagesPerHour = 20 
     let Totalwages ;
     const absentorpresent = aborpre();
@@ -30,6 +39,7 @@ function CalculateWages() {
                     Totalwages = 0 ;
                     console.log(Totalwages);
                     console.log(`No hours `)
+                    totalworkinghours +=0;
 
                     break ;
             
@@ -37,6 +47,7 @@ function CalculateWages() {
                     Totalwages = partTime_work * WagesPerHour;
                     console.log(`Total wages ${Totalwages} `)
                     console.log(`Part time work ${partTime_work}`)
+                    totalworkinghours += 4;
                   
                     break ;
                     
@@ -44,6 +55,7 @@ function CalculateWages() {
                     Totalwages = FullTime_work * WagesPerHour;
                     console.log(`Total wages ${Totalwages} `)
                     console.log(`Fully time work ${FullTime_work}`)
+                    totalworkinghours += 8;
                     break ;
             }
             
@@ -56,3 +68,4 @@ function CalculateWages() {
 }
 
 CalculateWages()
+tottalhours()
