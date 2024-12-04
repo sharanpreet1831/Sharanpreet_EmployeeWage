@@ -27,14 +27,18 @@ function CalculateWages() {
             switch (worktype){
                 case 0 :
                     console.log("no work today ")
+                    Totalwages = 0 ;
+                    console.log(Totalwages);
                     break ;
             
                 case 1 :
-                    console.log("partial time ")
+                    Totalwages = partTime_work * WagesPerHour;
+                    console.log(`Total wages ${Totalwages} `)
                     break ;
                     
                 case 2 :
-                    console.log("full time ")
+                    Totalwages = partTime_work * WagesPerHour;
+                    console.log(`Total wages ${Totalwages} `)
                     break ;
             }
             
