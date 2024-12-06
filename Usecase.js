@@ -1,79 +1,70 @@
+ 
 function aborpre() {
-    let randnumber = (Math.random())
-    const  treshold = 0.5  
-    if (randnumber < treshold){
-      
-        
-        return 0 ;
-    }
-    else {
-
-        
-        return 1 ;
-
-    }
+    let randnumber = Math.random();
+    const treshold = 0.5;
+    return randnumber < treshold ? 0 : 1;
 }
 
-const partTime_work  = 4 
-const FullTime_work  = 8 
-let totalworkinghours = 0;
-let Totalwages =0 ;
-
-
-function tottalhours(){
-    
-    console.log(`total working hours ${totalworkinghours}`);
-}
-
-
+const partTime_work = 4;
+const FullTime_work = 8;
 
 function CalculateWages() {
-    let worktype = Math.floor(Math.random()*3);
-   
-    const WagesPerHour = 20 
-    
+    const WagesPerHour = 20;
+    let worktype = Math.floor(Math.random() * 3);
     const absentorpresent = aborpre();
-    switch(absentorpresent){
-        case 1 :
-            switch (worktype){
-                case 0 :
-                   
-                    Totalwages += 0 ;
-                    
-                    
-                    totalworkinghours +=0;
+    let wages = 0;
+    let hours = 0;
 
-                    break ;
-            
-                case 1 :
-                    Totalwages += partTime_work * WagesPerHour;
-                   
-                    totalworkinghours += 4;
-                  
-                    break ;
-                    
-                case 2 :
-                    Totalwages += FullTime_work * WagesPerHour;
-                    
-                    totalworkinghours += 8;
-                    break ;
+    switch (absentorpresent) {
+        case 1:
+            switch (worktype) {
+                case 0:
+                    // Absent but present status is active
+                    break;
+                case 1:
+                    wages += partTime_work * WagesPerHour;
+                    hours += partTime_work;
+                    break;
+                case 2:
+                    wages += FullTime_work * WagesPerHour;
+                    hours += FullTime_work;
+                    break;
             }
-            
-        break 
-        case 0 :
-           Totalwages += 0;
-
+            break;
+        case 0:
+            // Fully absent
+            break;
     }
 
+    return { wages, hours };
 }
 
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+let monthnumber = 0;
 
+function WagesForMonth() {
+    let totalworkinghours = 0;
+    let Totalwages = 0;
 
+    for (let i = 0; i < 20 && totalworkinghours < 160; i++) {
+        const result = CalculateWages();
+        totalworkinghours += result.hours;
+        Totalwages += result.wages;
+    }
 
-for (var  i =0 ; i< 20 && totalworkinghours < 160  ; i++){
-    CalculateWages()
+    console.log(`Month: ${months[monthnumber]} | Total Wages: ${Totalwages} | Total Hours: ${totalworkinghours}`);
+    const fulldetail = { TH: totalworkinghours, TW: Totalwages, month: months[monthnumber++] };
+    return fulldetail;
 }
-tottalhours()
-console.log(`Total wages ${Totalwages}`);
 
+function getAll() {
+    const OneYearWages = [];
+    for (let i = 0; i < 12; i++) {
+        let monthlyData = WagesForMonth();
+        OneYearWages.push(monthlyData);
+    }
+    console.log(OneYearWages);
+}
+
+getAll();
 
