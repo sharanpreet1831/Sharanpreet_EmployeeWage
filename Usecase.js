@@ -52,7 +52,7 @@ function WagesForMonth() {
         Totalwages += result.wages;
     }
 
-    console.log(`Month: ${months[monthnumber]} | Total Wages: ${Totalwages} | Total Hours: ${totalworkinghours}`);
+    //console.log(`Month: ${months[monthnumber]} | Total Wages: ${Totalwages} | Total Hours: ${totalworkinghours}`);
     const fulldetail = { TH: totalworkinghours, TW: Totalwages, month: months[monthnumber++] };
     return fulldetail;
 }
